@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>开车</title>
+		<style>
+			body{margin:0;}
+			#pic{
+				/*margin-left:500px;*/
+				border:1px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<img id="pic" src="./qiche.png" width="300" />
+	</body>
+</html>
+<script>
+	//通过ID找对象
+	var pic = document.getElementById('pic');
+	var i = 1;
+	// alert(pic.offsetLeft);
+	var zong = document.documentElement.clientWidth;
+	var tu = pic.offsetWidth;
+	setInterval(function(){
+		pic.style.marginLeft = pic.offsetLeft + i + 'px';
+
+		if (pic.offsetLeft >= zong - tu) {
+			i = -i;
+		}
+	}, 10);
+
+//想让汽车碰到边就往回走，需要获取：
+//1. 整个浏览器的总宽度
+	// alert(document.documentElement.clientWidth);
+//2. 图片的宽度
+	// alert(pic.offsetWidth);
+//3. 图片距离浏览器左边的宽度
+	// alert(pic.offsetLeft);
+</script>
